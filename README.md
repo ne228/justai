@@ -4,4 +4,4 @@
 
 Приложение развернуто по адресу: [My API](http://www.firetests.site/api/vk/callback)
 
-Telegram:[@ne_smallaxe
+Telegram: @ne_smallaxe
