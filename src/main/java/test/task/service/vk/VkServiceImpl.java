@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import test.task.exception.VkApiException;
 import test.task.request.GetCallbackConfirmationCodeRequest;
 import test.task.request.SendMessageRequest;
-import test.task.response.ConfirmationCodeResponse;
-import test.task.response.SendMessageResponse;
+import test.task.response.vkApi.ConfirmationCodeResponse;
+import test.task.response.vkApi.SendMessageResponse;
 import test.task.service.utils.HttpService;
 
 

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import test.task.events.CallBackEvent;
 import test.task.events.ConfirmationEvent;
 import test.task.events.NewMessageEvent;
+import test.task.exception.UnknownEventTypeException;
 
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class EventMappingServiceImpl implements EventMappingService {
         this.objectMapper = objectMapper;
     }
 
-    public CallBackEvent mapEvent(Map<String, Object> eventPayload) {
+    public CallBackEvent mapEvent(Map<String, Object> eventPayload) throws UnknownEventTypeException {
         String eventType = (String) eventPayload.get("type");
 
         // В зависимости от типа возвращаем нужный класс
@@ -27,7 +28,7 @@ public class EventMappingServiceImpl implements EventMappingService {
             case "confirmation":
                 return objectMapper.convertValue(eventPayload, ConfirmationEvent.class);
             default:
-                throw new IllegalArgumentException("Неизвестный тип события: " + eventType);
+                throw new UnknownEventTypeException("Неизвестный тип события: " + eventType);
         }
     }
 }

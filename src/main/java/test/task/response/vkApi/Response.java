@@ -1,4 +1,4 @@
-package test.task.response;
+package test.task.response.vkApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

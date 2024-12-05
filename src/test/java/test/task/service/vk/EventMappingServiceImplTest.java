@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 import test.task.events.CallBackEvent;
 import test.task.events.ConfirmationEvent;
 import test.task.events.NewMessageEvent;
-import test.task.service.vk.EventMappingServiceImpl;
+import test.task.exception.UnknownEventTypeException;
 
 import java.util.Map;
 
@@ -28,8 +28,9 @@ class EventMappingServiceImplTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
+
     @Test
-    void testMapEvent_MessageNew() {
+    void testMapEvent_MessageNew() throws UnknownEventTypeException {
         // Arrange
         Map<String, Object> eventPayload = Map.of("type", "message_new", "message", "test message");
         NewMessageEvent newMessageEvent = new NewMessageEvent();
@@ -44,7 +45,7 @@ class EventMappingServiceImplTest {
     }
 
     @Test
-    void testMapEvent_Confirmation() {
+    void testMapEvent_Confirmation() throws UnknownEventTypeException {
         // Arrange
         Map<String, Object> eventPayload = Map.of("type", "confirmation", "code", "12345");
         ConfirmationEvent confirmationEvent = new ConfirmationEvent();
@@ -64,12 +65,12 @@ class EventMappingServiceImplTest {
         Map<String, Object> eventPayload = Map.of("type", "unknown_event");
 
         // Act & Assert
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> eventMappingService.mapEvent(eventPayload));
+        UnknownEventTypeException exception = assertThrows(UnknownEventTypeException.class, () -> eventMappingService.mapEvent(eventPayload));
         assertEquals("Неизвестный тип события: unknown_event", exception.getMessage());
     }
 
     @Test
-    void testMapEvent_WithExtraFields() {
+    void testMapEvent_WithExtraFields() throws UnknownEventTypeException {
         // Arrange
         Map<String, Object> eventPayload = Map.of("type", "message_new", "message", "test message", "extraField", "extraValue");
         NewMessageEvent newMessageEvent = new NewMessageEvent();

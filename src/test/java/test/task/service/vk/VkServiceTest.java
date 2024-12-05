@@ -9,11 +9,10 @@ import org.springframework.http.ResponseEntity;
 import test.task.exception.VkApiException;
 import test.task.request.GetCallbackConfirmationCodeRequest;
 import test.task.request.SendMessageRequest;
-import test.task.response.ConfirmationCodeResponse;
-import test.task.response.Error;
-import test.task.response.SendMessageResponse;
+import test.task.response.vkApi.ConfirmationCodeResponse;
+import test.task.response.vkApi.Error;
+import test.task.response.vkApi.SendMessageResponse;
 import test.task.service.utils.HttpService;
-import test.task.service.vk.VkServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
