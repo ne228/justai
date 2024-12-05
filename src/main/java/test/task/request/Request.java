@@ -2,9 +2,10 @@ package test.task.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import test.task.config.ApplicationProperties;
 
 @Data
-public abstract class Request {
+public class Request {
     @JsonProperty("random_id")
     private Long randomId;
 
@@ -13,6 +14,7 @@ public abstract class Request {
 
     public Request() {
         this.randomId = System.currentTimeMillis();
+        this.version = ApplicationProperties.getVersion();
     }
 
 

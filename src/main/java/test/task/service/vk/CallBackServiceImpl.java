@@ -10,6 +10,7 @@ import test.task.exception.VkApiException;
 import test.task.request.GetCallbackConfirmationCodeRequest;
 import test.task.request.SendMessageRequest;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
 
@@ -31,7 +32,7 @@ public class CallBackServiceImpl implements CallBackService {
     @Override
     public String processCallBack(CallBackEvent callback) throws JsonProcessingException, VkApiException {
 
-        if (callback == null || !callback.getSecret().equals(secret)) {
+        if (callback == null || !Objects.equals(callback.getSecret(), secret)) {
             throw new SecurityException("Неверный secret callBack");
         }
 

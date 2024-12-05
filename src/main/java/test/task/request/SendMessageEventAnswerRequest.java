@@ -22,4 +22,16 @@ public class SendMessageEventAnswerRequest extends Request {
         this.userId = userId;
         this.peerId = peerId;
     }
+
+    @Override
+    public String toString() {
+        return "SendMessageEventAnswerRequest{" +
+                "eventId='" + eventId + '\'' +
+                ", userId=" + userId +
+                ", peerId=" + peerId +
+                ", eventData='" + eventData + '\'' +
+                ", version='" + getVersion() + '\'' +
+                ", randomId='" + getRandomId() + '\'' +
+                '}';
+    }
 }

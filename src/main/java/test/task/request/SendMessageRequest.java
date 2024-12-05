@@ -85,4 +85,36 @@ public class SendMessageRequest extends Request {
         this.userId = userId;
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "SendMessageRequest{" +
+                "userId=" + userId +
+                ", peerId='" + peerId + '\'' +
+                ", peerIds='" + peerIds + '\'' +
+                ", domain='" + domain + '\'' +
+                ", chatId=" + chatId +
+                ", userIds='" + userIds + '\'' +
+                ", message='" + message + '\'' +
+                ", guid=" + guid +
+                ", lat='" + lat + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", attachment='" + attachment + '\'' +
+                ", replyTo=" + replyTo +
+                ", forwardMessages='" + forwardMessages + '\'' +
+                ", forward='" + forward + '\'' +
+                ", stickerId=" + stickerId +
+                ", groupId=" + groupId +
+                ", keyboard='" + keyboard + '\'' +
+                ", template='" + template + '\'' +
+                ", payload='" + payload + '\'' +
+                ", contentSource='" + contentSource + '\'' +
+                ", dontParseLinks=" + dontParseLinks +
+                ", disableMentions=" + disableMentions +
+                ", intent='" + intent + '\'' +
+                ", subscribeId=" + subscribeId +
+                ", version='" + getVersion() + '\'' +
+                ", randomId='" + getRandomId() + '\'' +
+                '}';
+    }
 }
