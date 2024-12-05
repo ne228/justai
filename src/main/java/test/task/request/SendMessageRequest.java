@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SendMessageRequest extends Request {
 
